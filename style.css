@@ -1,0 +1,74 @@
+/* Reset */
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header */
+.header-container {
+    text-align: center;
+    padding: 25px 0;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #ff7b00;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #333;
+    margin-top: -10px;
+}
+
+/* Sidebar */
+.css-1d391kg {
+    background: #fff5e6 !important;
+    border-right: 2px solid #ffc68a;
+}
+
+/* Métricas — Cards Glass */
+.metric-card {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 125, 0, 0.3);
+}
+
+.metric-card h3 {
+    color: #ff7b00;
+    margin: 0;
+    font-size: 26px;
+}
+
+.metric-card p {
+    color: #222;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Gráfico */
+.vega-embed {
+    background: #fff;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+/* Tabela */
+.stDataFrame {
+    border-radius: 12px !important;
+    border: 1px solid #ffddb1 !important;
+}
+
+/* Botão */
+.stDownloadButton button {
+    background: #ff7b00 !important;
+    color: white !important;
+    border-radius: 10px !important;
+    padding: 10px 20px;
+    font-weight: bold;
+}
