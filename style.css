@@ -1,9 +1,42 @@
-/* Reset */
+/* ========================= RESET / TIPOGRAFIA GERAL ========================= */
 * {
     font-family: "Poppins", sans-serif;
 }
 
-/* Header */
+body,
+.stApp {
+    background-color: #ffffff;
+    /* fundo branco no app inteiro */
+    color: #555555;
+    /* texto padrão cinza */
+}
+
+/* Títulos e destaques em laranja */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title {
+    color: #ff7b00;
+}
+
+/* Parágrafos, legendas, textos auxiliares em cinza */
+p,
+span,
+label,
+li,
+.subtitle {
+    color: #555555;
+}
+
+/* Links em laranja */
+a {
+    color: #ff7b00;
+}
+
+/* ========================= HEADER ========================= */
 .header-container {
     text-align: center;
     padding: 25px 0;
@@ -12,31 +45,43 @@
 .title {
     font-size: 40px;
     font-weight: 800;
-    color: #ff7b00;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .subtitle {
     font-size: 18px;
-    color: #333;
     margin-top: -10px;
 }
 
-/* Sidebar */
-.css-1d391kg {
-    background: #fff5e6 !important;
-    border-right: 2px solid #ffc68a;
+/* ========================= SIDEBAR (LATERAL LARANJA) ========================= */
+.css-1d391kg,
+.stSidebar {
+    background: #ff7b00 !important;
+    /* sidebar laranja */
+    border-right: 2px solid #e76e00;
 }
 
-/* Métricas — Cards Glass */
+.css-1d391kg *,
+.stSidebar * {
+    color: #ffffff !important;
+}
+
+.stSidebar input,
+.stSidebar textarea,
+.stSidebar select {
+    background-color: #ffffff !important;
+    color: #555555 !important;
+    border-radius: 6px !important;
+}
+
+/* ========================= MÉTRICAS — CARDS ========================= */
 .metric-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(6px);
+    background: #ffffff;
     border-radius: 16px;
     padding: 18px;
     text-align: center;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255, 125, 0, 0.3);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    border: 1px solid #ff7b00;
 }
 
 .metric-card h3 {
@@ -46,29 +91,116 @@
 }
 
 .metric-card p {
-    color: #222;
+    color: #555555;
     margin: 0;
     font-size: 14px;
 }
 
-/* Gráfico */
+h2:has(+ .metrics-end) {
+    margin-bottom: 40px !important; 
+}
+
+.metrics-end {
+    height: 1px;
+}
+
+/* ========================= GRÁFICO ========================= */
 .vega-embed {
-    background: #fff;
-    border-radius: 16px;
+    background: #111111;             
+    border-radius: 16px;       
     padding: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    border: 2px solid #ff7b00;           
+    overflow: hidden;                    
 }
 
-/* Tabela */
+/* ========================= TABELA ========================= */
 .stDataFrame {
-    border-radius: 12px !important;
-    border: 1px solid #ffddb1 !important;
+    border-radius: 16px !important;
+    border: 2px solid #ff7b00 !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden !important;
+    padding: 0 !important;         
+    background: #111111;  
 }
 
-/* Botão */
-.stDownloadButton button {
+.stDataFrame > div {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ========================= BOTÕES ========================= */
+.stDownloadButton button,
+.stButton>button {
     background: #ff7b00 !important;
-    color: white !important;
+    color: #ffffff !important;
     border-radius: 10px !important;
     padding: 10px 20px;
     font-weight: bold;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(255, 123, 0, 0.4);
+}
+
+.stDownloadButton button * ,
+.stButton > button * {
+    color: #ffffff !important;
+}
+
+.stDownloadButton button:hover,
+.stButton>button:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #cccccc !important;
+    margin: 20px 0;
+}
+
+.header-container {
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    background: #ffffff;
+    border: 2px solid #ff7b00;   
+    border-radius: 16px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 24px;
+    overflow: hidden;           
+}
+
+.chart-card .vega-embed {
+    background: #111111;        
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;          
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+.orange-btn {
+    background: #ff7b00;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255, 123, 0, 0.4);
+    transition: all 0.15s ease;
+}
+
+.orange-btn:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
 }

@@ -9,7 +9,8 @@ from pathlib import Path
 # ------------------------------
 css_path = Path("style.css")
 if css_path.exists():
-    st.markdown(f"<style>{css_path.read_text()}</style>", unsafe_allow_html=True)
+    css = css_path.read_text(encoding="utf-8", errors="ignore")
+    st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # ------------------------------
 # Layout da página
@@ -30,25 +31,27 @@ st.markdown("""
 # ------------------------------
 # Controles principais (modo e refresh)
 # ------------------------------
+
 if "modo_estatico" not in st.session_state:
     st.session_state.modo_estatico = True
 
 if "refresh_counter" not in st.session_state:
     st.session_state.refresh_counter = 0
 
-colA, colB = st.columns([1, 1])
+st.markdown("""
+<div class="buttons-row">
+    <button onclick="fetch('?alternar', {method:'POST'})" class="orange-btn">Alternar modo de simulação</button>
+    <button onclick="fetch('?refresh', {method:'POST'})" class="orange-btn">Recalcular</button>
+</div>
+""", unsafe_allow_html=True)
 
-with colA:
-    if st.button("Alternar modo de simulação"):
-        st.session_state.modo_estatico = not st.session_state.modo_estatico
+query_params = st.query_params
 
-with colB:
-    if st.button('Recalcular'):
-        st.session_state.refresh_counter += 1
+if "alternar" in query_params:
+    st.session_state.modo_estatico = not st.session_state.modo_estatico
 
-st.markdown(
-    f"### Modo atual: **{'Estático (fixo)' if st.session_state.modo_estatico else 'Aleatório'}**"
-)
+if "refresh" in query_params:
+    st.session_state.refresh_counter += 1
 
 # --------------------------------------
 # Sidebar - Configurações
@@ -120,6 +123,8 @@ col2.markdown(f"<div class='metric-card'><h3>{TA_medio:.2f} min</h3><p>Atendimen
 col3.markdown(f"<div class='metric-card'><h3>{TE_medio:.2f} min</h3><p>Espera Média</p></div>", unsafe_allow_html=True)
 col4.markdown(f"<div class='metric-card'><h3>{TS_medio:.2f} min</h3><p>Tempo no Sistema</p></div>", unsafe_allow_html=True)
 col5.markdown(f"<div class='metric-card'><h3>{NF_estimado:.2f}</h3><p>Tam. Médio da Fila</p></div>", unsafe_allow_html=True)
+
+st.markdown("<div class='metrics-end'></div>", unsafe_allow_html=True)
 
 # ------------------------------
 # Gráfico — Evolução real da fila
